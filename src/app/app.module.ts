@@ -13,6 +13,7 @@ import { Sub3Component } from './subs/sub3/sub3.component';
 import { HeaderComponent } from './includes/header/header.component';
 import { PromisesComponent } from './promises/promises.component';
 import { AsyncAwaitComponent } from './async-await/async-await.component';
+import { UsersComponent } from './users/users.component';
 // import { Sub3Component } from './subs/sub3/sub3.component';
 
 @NgModule({
@@ -27,6 +28,7 @@ import { AsyncAwaitComponent } from './async-await/async-await.component';
     HeaderComponent,
     PromisesComponent,
     AsyncAwaitComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

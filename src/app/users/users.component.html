@@ -1,0 +1,79 @@
+
+
+<h3>{{ title }}</h3>
+
+<div *ngIf="isUserLoggedIn">
+    <strong> UaserName : {{ user_object.firstName }} {{ user_object.lastName }}</strong>
+    <br><strong > UaserAge : {{ user_age }}</strong>
+</div>
+
+<table>
+    <tr >
+        <th>FirstName </th>
+        <th>LastName </th>
+        <th>Contact </th>
+    </tr>
+    <tr *ngFor="let item of contacts">
+        <td> <strong>{{ item.firstName }}</strong></td>
+        <td> <strong>{{ item.lastName }}</strong></td>
+        <td> <strong>{{ item.contactId }}</strong></td>
+    </tr>
+</table>
+
+<hr>
+<h3>{{ title1 }}</h3>
+<div>
+    <strong>innerHTML example:</strong>
+    <div [innerHTML]="user_object.firstName"></div>
+    <div [innerHTML]="user_object.lastName"></div>
+    <div [innerHTML]="user_age"></div>
+</div>
+   
+<br>
+<strong>style property example:</strong>
+<p [style.color]="textColor">  THis is the style property binding change the color [style.color]</p>
+<br>
+
+<strong>title property example: hover the name and contact</strong>
+<table>
+    <tr >
+        <th>FirstName </th>
+        <th>LastName </th>
+        <th>Contact </th>
+    </tr>
+    <tr *ngFor="let item of contacts">
+        <td [title]="titlePropertyBinding"> <strong>{{ item.firstName }}</strong></td>
+        <td [title]="titlePropertyBinding"> <strong>{{ item.lastName }}</strong></td>
+        <td [title]="titlePropertyBinding"> <strong>{{ item.contactId }}</strong></td>
+    </tr>
+</table>
+<br><img [src]="imgUrl"  [alt]="imgAlt" /><br>
+<br><button class="btn btn-danger" [disabled]="buttonDisabled" (click)="onClickButton()">click button to disabled property</button>
+
+<hr>
+<h3>{{ title2 }}</h3>
+<strong>Attribute property example: hover the name and contact</strong>
+
+<table style="background-color: #ddd">
+    <tr >
+        <th>FirstName </th>
+        <th>LastName </th>
+        <th>Contact </th>
+    </tr>
+    <tr *ngFor="let item of contacts">
+        <td [attr.colspan]="colVal"> <strong>{{ item.firstName }}</strong></td>
+        <td [attr.colspan]="colVal"> <strong>{{ item.lastName }}</strong></td>
+        <td [attr.colspan]="colVal"> <strong>{{ item.contactId }}</strong></td>
+    </tr>
+</table>
+
+<hr>
+<h3>{{ title3 }}</h3>
+<strong>Click the buttons,use the inspector to see to log values to the console.</strong>
+<br>
+<button class="btn btn-info" (click)="onClick()">Event Binding</button><br>
+<br>
+<div class="btn btn-dark" (mouseover)="hightLightBGColor()">HightLight me Please</div>
+<br>
+<br>
+<input type="text" (focus)="inputBox()" placeholder="Input Box">

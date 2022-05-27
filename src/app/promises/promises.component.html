@@ -1,8 +1,40 @@
+
+
+
+
+
+
 <div class="my-3">
     <h2>Promise</h2>
     <br>
-    <strong>{{ promiseValue }}</strong>
+   
     <!-- <button class="btn btn-primary" (click)="myFunction()">Click Me</button> -->
 </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>Choose which brand Laptop you want</h4>
+              <div class="card">
+                <div class="card-body">
+                    <strong>{{ brand }}</strong><br>
+                    <strong>{{ color }}</strong><br>
+                    <strong>{{ hardDisk }}</strong><br>
+                    <strong>{{ statuss }}</strong><br>
+                  <h5 class="card-title" *ngIf="this.dellAvail == true">Dell is Purchased & (promise resolve()invoke and emitt data by then())</h5>
+                  <h5 class="card-title" *ngIf="this.hpAvail == true">Hp is Purchased & (promise resolve()invoke and emitt data by then())</h5>
+                  <h5 class="card-title" *ngIf="this.hpAvail == false && this.dellAvail == false">Not Available & (promise reject()invoke and handled by catch())</h5>
+                  <a (click)="DellAvailable()" class="btn btn-primary">Dell </a> &nbsp;&nbsp;
+                  <a (click)="HpAvailable()" class="btn btn-primary">Hp  </a>&nbsp;&nbsp;
+                  <a (click)="notAvailable()" class="btn btn-primary">Reject </a>
+
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+
+
 
  
