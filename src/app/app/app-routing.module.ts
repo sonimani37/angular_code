@@ -8,7 +8,7 @@ import { SubjectsComponent } from './subjects/subjects.component';
 
 const routes: Routes = [
 	{path: '', component: SubjectsComponent},
-	{path: 'subjects', component: SubjectsComponent},
+	{path: 'subject', component: SubjectsComponent},
 	{path: 'promises', component: PromisesComponent},
 	{path: 'observable', component: ObservableComponent},
 	{path: 'obspro', component: DiffObsProComponent},
