@@ -13,6 +13,7 @@ export class UsersComponent implements OnInit {
     buttonDisabled = false;
     titlePropertyBinding = 'title Property Binding ';
     colVal = 4;
+    username:any = 'Two Way Data Binding';
 
     isUserLoggedIn = true;
 
@@ -20,6 +21,7 @@ export class UsersComponent implements OnInit {
     title1 = 'This is the testing of Property Binding';
     title2 = 'This is the testing of Attribute Binding';
     title3 = 'This is the testing of Event Binding';
+    title4 = 'This is the testing of Two way  Binding';
 
     user_object = {
       'firstName': 'Data',

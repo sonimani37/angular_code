@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AsyncAwaitComponent } from './async-await/async-await.component';
 import { DiffObsProComponent } from './diff-obs-pro/diff-obs-pro.component';
+import { DirectivesComponent } from './directives/directives.component';
 import { ObservableComponent } from './observable/observable.component';
 import { PromisesComponent } from './promises/promises.component';
 import { SubjectsComponent } from './subjects/subjects.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
 	{path: 'obspro', component: DiffObsProComponent},
 	{path: 'async-await', component: AsyncAwaitComponent},
 	{path: 'users', component: UsersComponent},
+	{path: 'directives', component: DirectivesComponent},
 	{path: '**', redirectTo: 'promises'}
 
 ];

@@ -14,6 +14,9 @@ import { HeaderComponent } from './includes/header/header.component';
 import { PromisesComponent } from './promises/promises.component';
 import { AsyncAwaitComponent } from './async-await/async-await.component';
 import { UsersComponent } from './users/users.component';
+import { FormsModule } from '@angular/forms';
+import { DirectivesComponent } from './directives/directives.component';
+import { CustomStyleDirective } from './custom-style.directive';
 // import { Sub3Component } from './subs/sub3/sub3.component';
 
 @NgModule({
@@ -29,11 +32,14 @@ import { UsersComponent } from './users/users.component';
     PromisesComponent,
     AsyncAwaitComponent,
     UsersComponent,
+    DirectivesComponent,
+    CustomStyleDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

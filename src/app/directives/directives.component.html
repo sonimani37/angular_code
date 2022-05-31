@@ -1,0 +1,224 @@
+<div class="my-3">
+	<h2>{{ title }}</h2>
+	<br>
+</div>
+<div class="row">
+	<div>
+		<h3>Attribute Directives</h3>
+	</div>
+	<div class="col-md-12">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="card">
+					<div class="card-body">
+
+						<strong><h4>ngClass Directives</h4></strong><br>
+						<div [ngClass]="'class1'">This is the Example of [ngClass]</div>
+						<div [ngClass]="'class1'">we can re-use the code for multiple DOM elments,</div>
+
+					</div>
+					<div class="card-body">
+						<div [ngClass]="'class1 class2'">we can provide more than 1 class names using ngClass ,THis is the example of multiple class of css</div>
+					</div>
+					<div class="card-body">
+						<div [ngClass]="styleClassVariable">ngClass with dynamic Variable---[ngClass]="styleClassVariable"---</div>
+					</div>
+					<div class="card-body">
+						<div [ngClass]="classWithConditions === 'class4'? 'class4' : 'class5'">ngClass with Conditional---[ngClass]="classWithConditions === 'class4'? 'class4' : 'class5'"---</div>
+					</div>
+					<div class="card-body">
+						<div [ngClass]="{class4: true , class5: true}">ngClass with Object ---[ngClass]="class4: false ,class5: true"---</div>
+					</div>
+					<div class="card-body">
+						<div [ngClass]="getClassName()">ngClass with Method ---[ngClass]="getClassName()"---</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div class="row">
+			<div class="col-sm-6">
+				<h4></h4>
+				<div class="card">
+					<div class="card-body">
+						<strong>
+							<h4>ngStyle Directives</h4>
+						</strong><br>
+					</div>
+					<div class="card-body">
+						<div [ngStyle]="{'background-color': 'green','color': '#fff'}">This is the Example of
+							[ngStyle]--- [ngStyle]="'background-color': green,'color': '#fff'" ---</div>
+					</div>
+			
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="card">
+					<div class="card-body">
+						<strong>
+							<h4>ngModel Directives</h4>
+						</strong><br>
+					</div>
+					<div class="card-body">
+
+						<input [(ngModel)]="username" />
+						<div>{{ username }}</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div>
+		<h3>Structural Directives</h3>
+	</div>
+	<div class="col-md-12">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card">
+					<div class="card-body">
+						<strong><h4>*ngIf Directives</h4></strong><br>
+						<div class="cotainer">
+							<button class="btn btn-success" (click)="onClick()">Create Block</button><br>
+							<br>
+
+							<div *ngIf="isvalid; else blockElse" ><b>Block has been created</b> <i>(this is the example of *ngIf if we click the button value becomes true and this is visible)</i></div>
+
+							<ng-template #blockElse>
+								<div><b>No Block has been created yet!</b> <i>(this is the example of else condition when no block is created)</i></div>
+							</ng-template>
+						</div>
+
+						<div class="cotainer">
+							<button class="btn btn-success" (click)="onClick1()">Create Block</button><br>
+							<br>
+							<div *ngIf="isvalid1; then blockThen else blockElse" ></div>
+
+							<ng-template #blockThen>
+								<div><b>Block has been created</b> <i>(this is the example of *ngIf with then and else condition if we click the button value becomes true and this is visible)</i></div>
+							</ng-template>
+
+							<ng-template #blockElse>
+								<div><b>No Block has been created yet!</b> <i>(this is the example of else </i></div>
+							</ng-template>
+						</div>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-body">
+						<strong><h4>*ngFor Directives</h4></strong><br>
+						<div class="cotainer">
+							<div class="row">
+								<div class="col-md-6">
+									<table class="table">		
+										<thead  class="thead-dark">
+											<tr>
+												<th>Sr.No</th>
+												<th>Product Name</th>
+												<th>Product Id</th>
+												<th>Product Price</th>
+											</tr>
+										</thead>
+
+										<tbody>
+											<tr *ngFor="let item of products; let i = index;">
+												<td># {{i}}</td>
+												<td>{{item.name}}</td>
+												<td>{{item.id}}</td>
+												<td>{{item.price}}</td>
+											</tr>
+										</tbody>
+
+										<tbody>
+											<tr *ngFor="let item of products; index as i">
+												<td># {{i +1 }}</td>
+												<td>{{item.name}}</td>
+												<td>{{item.id}}</td>
+												<td>{{item.price}}</td>
+											</tr>
+										</tbody>
+
+										<tbody>
+											<tr *ngFor="let item of products; first as i">
+												<td>{{i}}</td>
+												<td>{{item.name}}</td>
+												<td>{{item.id}}</td>
+												<td>{{item.price}}</td>
+											</tr>
+										</tbody>
+
+										<tbody>
+											<tr *ngFor="let item of products; last as i">
+												<td>{{i}}</td>
+												<td>{{item.name}}</td>
+												<td>{{item.id}}</td>
+												<td>{{item.price}}</td>
+											</tr>
+										</tbody>
+
+										<tbody>
+											<tr *ngFor="let item of products; odd as i">
+												<td>{{i}}</td>
+												<td>{{item.name}}</td>
+												<td>{{item.id}}</td>
+												<td>{{item.price}}</td>
+											</tr>
+										</tbody>
+
+										<tbody>
+											<tr *ngFor="let item of products; even as i">
+												<td>{{i}}</td>
+												<td>{{item.name}}</td>
+												<td>{{item.id}}</td>
+												<td>{{item.price}}</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+							
+						</div>
+					
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-body">
+						<strong><h4>*ngSwitch Directives</h4></strong><br>
+						<button class="btn btn-info" (click)="onClicked()"> click button</button><i>this is the example of switch case </i>
+						<div [ngSwitch]="switchValue">
+							
+							<div *ngSwitchCase="1"> Value Passed is : 1</div>
+							<div *ngSwitchCase="2"> Value Passed is : 2</div>
+							<div *ngSwitchCase="3"> Value Passed is : 3</div>
+							<div *ngSwitchCase="4"> Value Passed is : 4</div>
+							<div *ngSwitchCase="5"> Value Passed is : 5</div>
+							<div *ngSwitchCase="6"> Value Passed is : 6</div>
+							<div *ngSwitchDefault> This is the Default Switch value</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="card-body">
+						<strong><h4>Custom Directives</h4></strong><br>
+						<h5><b>Normal Heading</b></h5>
+						<h5 appCustomStyle><b>Custom Heading</b></h5>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
