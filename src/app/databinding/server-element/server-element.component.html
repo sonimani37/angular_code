@@ -1,0 +1,21 @@
+<div
+class="panel panel-default">
+<!-- <div class="panel-heading">{{ element.name }}</div> -->
+
+<!--This is the  Testing of OnChange() -->
+<div class="panel-heading">{{ name }}</div>
+<div class="panel-body">
+
+
+  <!-- <p>
+    <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
+    <em *ngIf="element.type === 'blueprint'" >{{ element.content }}</em>
+  </p> -->
+
+
+    <!-- Everything you place between the opening and closing tag of your own component is lost by default is simple removed from the DOM, Angular is not take care about it!!
+    so there is a speacial directive and it is a directive, even thought it look like a component but it doesn't have it's own template, 
+  so basically ng-content serves as a hook you can place in your component to mark the place for Angular where it should add any content it finds between the opeening and closing tag of component -->
+  <ng-content></ng-content>     
+</div>
+</div>

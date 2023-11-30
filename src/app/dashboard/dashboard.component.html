@@ -1,0 +1,41 @@
+<app-header></app-header>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card"> 
+				<h4 class="card-header">Login User Info</h4>
+				<div class="card-body">
+                    <div class="alert alert-success" role="alert" *ngIf="responseMessage">{{responseMessage}}</div>
+                    <div class="col-md-8" *ngIf="response && response.user">
+                        userId: {{response.user.id}} <br>
+                        Firstname: {{response.user.firstname}} <br> 
+                        Lastname: {{response.user.lastname}} <br> 
+                        Email: {{response.user.email}} <br>
+                        Contact: {{response.user.contact}} <br>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card"> 
+				<h4 class="card-header">All User Info</h4>
+                <div class="alert alert-success" role="alert" *ngIf="responseMessage">{{responseMessage}}</div>
+				<div class="card-body" *ngFor="let item of allUsers">
+                    <div class="col-md-8" >
+                        userId: {{item.id}} <br>
+                        Firstname: {{item.firstname}} <br> 
+                        Lastname: {{item.lastname}} <br> 
+                        Email: {{item.email}} <br>
+                        Contact: {{item.contact}} <br>
+                        <button type="button" (click)="chat(item.id)">Create Chat</button>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

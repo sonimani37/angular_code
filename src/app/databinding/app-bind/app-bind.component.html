@@ -1,0 +1,27 @@
+<button class="btn btn-success" (click)="onSelect('bindingExample')" [routerLink]="['/data-bindingExample']" routerLinkActive="router-link-active" >Databing Examples</button>|
+<button class="btn btn-success" (click)="onSelect('bindingDeep')">Databing Deep Dive</button> 
+
+<div *ngIf="bindDeep">
+    <h1>DataDeepBind</h1>
+    <div class="container">
+        <app-cockpit (serverCreated)="onServerAdded($event)"
+        (bpCreated)="onBlueprintAdded($event)"></app-cockpit>
+        <hr>
+        <div class="row">
+          <div class="col-xs-12">
+
+            <button class="btn btn-info" (click)="onChangeFirst()">Change first Element</button>
+            <!-- Parent to child -->
+            <app-server-element  *ngFor="let serverElement of serverElements" [srvElement]="serverElement" [name]="serverElement.name">  
+              
+              <!-- we add this via the ng-content hook , it will be projected into your component -->
+              <p>
+                <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
+                <em *ngIf="serverElement.type === 'blueprint'" >{{ serverElement.content }}</em>
+              </p>
+
+            </app-server-element>  
+          </div>
+        </div>
+      </div>
+</div>

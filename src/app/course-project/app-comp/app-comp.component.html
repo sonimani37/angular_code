@@ -1,0 +1,12 @@
+<!-- <p>app-comp works!</p> -->
+<!-- <app-server></app-server> -->
+<!-- <app-servers></app-servers> -->
+<app-header-comp (featureSelected)="onNavigate($event)"></app-header-comp>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <app-recipes *ngIf="loadedFeature === 'recipe'"></app-recipes>
+            <app-shopping-list *ngIf="loadedFeature !== 'recipe'"></app-shopping-list>            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-md-1">
+    
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-success" (click)="onSelect('signin')">Sign-In</button> 
+        </div>
+    </div>
+</div>
+<hr> -->
+
+
+<div class="row">
+    <div class="col-md-12 club_widget">
+        <div class="card ">
+            <div class="card-header ">ANGULAR</div>
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <button class="btn btn-success" (click)="onSelect('signup')">Sign-Up</button>
+                        </div>
+                        <div class="col-md-1">
+                            <button class="btn btn-success" (click)="onSelect('signin')">Sign-In</button> 
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <app-sign-up *ngIf="signup"></app-sign-up>
+                            <app-sign-in *ngIf="signin"></app-sign-in>
+                        </div>
+                    </div>
+                </div>
+            </div>      
+        </div>
+    </div>
+</div>
+
+
+<!-- 
+<div>
+    <h4>Basic mat-select</h4>
+    <mat-form-field>
+        <mat-label>Favorite food</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{food.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div> -->

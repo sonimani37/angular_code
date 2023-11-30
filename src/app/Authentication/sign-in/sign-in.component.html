@@ -1,0 +1,46 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="card"> 
+				
+				<h4 class="card-header">SignIn</h4>
+				<h4>{{responseMessage}}</h4>
+				<div class="card-body">
+					
+                    <div class="alert alert-success" role="alert" *ngIf="responseMessage">{{responseMessage}}</div>
+					<form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="username">Email</label>
+								<input type="email" formControlName="email" class="form-control" />
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="password">Password</label>
+								<input type="password" formControlName="password" class="form-control" />
+							</div>
+						</div>
+						<br>
+						<div class="col-md-12">
+							<div class="form-group">
+								<button [disabled]="loading" class="btn btn-primary"> <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Sign In</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8" *ngIf="response && response.data">
+            {{this.response.data.id}} <br>
+            {{this.response.data.username}} <br> 
+            {{this.response.data.email}} <br>
+            {{this.response.data.token}} 
+        </div>
+    </div>
+</div>

@@ -6,6 +6,9 @@ export const environment = {
   production: false
 };
 
+export const baseUrl = 'http://localhost:7000/api/';
+export const serverUrl = 'http://localhost:7000';
+// export const baseUrl = 'http://103.127.29.85/mangoproject/public/api/'
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

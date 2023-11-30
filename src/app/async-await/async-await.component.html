@@ -1,1 +1,28 @@
 <p>async-await works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <strong> Ex - 0: with Promise </strong>
+      <hr>
+      <button class="btn btn-danger" (click)="fetch1()">Buy Laptop</button>
+      <hr>
+      <div>{{resp1}}</div>
+    </div>
+    <div class="col-md-4">
+      <strong>  Ex - 1: with Async/Await </strong>
+      <hr>
+      <button class="btn btn-danger" (click)="fetch2()">Buy Laptop</button>
+      <hr>
+      <div>{{resp2}}</div>
+    </div>
+    <div class="col-md-4">
+      <strong> Ex - 2: Async/Await in console </strong>
+      <hr>
+      <button class="btn btn-danger" (click)="fetch3()">click button and open inspect</button>
+      <hr>
+      <div *ngFor="let item of resp">
+       <div> {{item.id}} {{item.login}} ------ {{item.type}} </div>
+      </div>
+    </div>
+  </div>
+</div>

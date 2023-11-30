@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { fakeAsync } from '@angular/core/testing';
 
 @Component({
 	selector: 'app-directives',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class DirectivesComponent implements OnInit {
 	switchValue: number = 0;
 
+	showSecret:boolean = false;
+	log:Date[] = [];
 	constructor() { }
 
 	ngOnInit(): void {
@@ -50,6 +53,12 @@ export class DirectivesComponent implements OnInit {
 		{name: 'Keyboard', id: 'pro03', price:10000 },
 		{name: 'hardDisk', id: 'pro04', price:10000 },
 		{name: 'Monitor', id: 'pro05', price:10000 },
-	]
+	];
+
+	onToggleDetails(){
+		this.showSecret = !this.showSecret;
+		// this.log.push(this.log.length + 1);
+		this.log.push(new Date());
+	}
 
 }
