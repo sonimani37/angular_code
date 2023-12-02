@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser'
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AppMaterialModule } from './app-material/app-material.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -41,6 +40,9 @@ import { AppAuthComponent } from './Authentication/app-auth/app-auth.component';
 import { SignUpComponent } from './Authentication/sign-up/sign-up.component';
 import { SignInComponent } from './Authentication/sign-in/sign-in.component';
 import { ChatComponent } from './chat/chat/chat.component';
+import { CreateGroupComponent } from './chat/create-group/create-group.component';
+import { AppMaterialModule } from './app-material/app-material.module';
+// import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 // import { SignUpComponent } from './Authentication/sign-up/sign-up.component';
 
 // import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
@@ -82,7 +84,9 @@ import { ChatComponent } from './chat/chat/chat.component';
     SignUpComponent,
     AppAuthComponent,
     SignInComponent,
-    ChatComponent
+    ChatComponent,
+    CreateGroupComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -93,6 +97,7 @@ import { ChatComponent } from './chat/chat/chat.component';
     ReactiveFormsModule,
     AppMaterialModule,
     HttpClientModule,
+    // NgMultiSelectDropDownModule.forRoot()
     // SocketIoModule.forRoot(config),
   ],
 

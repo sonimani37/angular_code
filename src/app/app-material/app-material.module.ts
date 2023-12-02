@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 import { SignInComponent } from '../Authentication/sign-in/sign-in.component';
 import { SignUpComponent } from '../Authentication/sign-up/sign-up.component';
 import { AppAuthComponent } from '../Authentication/app-auth/app-auth.component';
@@ -12,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -21,18 +21,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         // SignInComponent
     ],
     imports: [
-        NgbModule,
-        FormsModule,
-        CommonModule,
-        ReactiveFormsModule,
+        // NgbModule,
+        // FormsModule,
+        // CommonModule,
+        // ReactiveFormsModule,
         MatToolbarModule,
         MatCardModule,
         MatFormFieldModule,
-        MatIconModule
+        MatIconModule,
+        MatSelectModule
     ],
 
     exports: [
-        MatToolbarModule, MatCardModule, MatIconModule
+        MatToolbarModule, MatCardModule, MatIconModule, MatFormFieldModule,MatSelectModule
     ],
 })
 export class AppMaterialModule { }

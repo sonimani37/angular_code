@@ -1,34 +1,73 @@
 <body>
     <div class="app-wrapper">
         <div class="app-header">
-            <h2>{{selectedUser?.['firstname'] }} {{ selectedUser?.['lastname'] }}</h2>
-            <span class="friend-status">Online</span>
+
+            <h2 *ngIf="chatType == 'single'">{{selectedUser?.['firstname'] }} {{ selectedUser?.['lastname'] }}</h2>
+
+            <h2 *ngIf="chatType == 'group'">{{selectedUser?.['group_name'] }}</h2>
+
+            <span class="friend-status" *ngIf="chatType == 'single'">Online</span>
+
+            <span class="friend-status" *ngIf="chatType == 'group'">
+                <span *ngFor="let item of selectedUser?.['user']">
+                    {{item.firstname}} {{item.lastname}},
+                </span>
+            </span>
+            
         </div>
 
-        <div class="app-message-body" *ngFor="let item of previousMsgs;let i = index">
-           
-            <div class="message-wrapper" *ngIf="item?.isReceiver == true">
-                <div class="message">
-                    <span>{{ item.message }}</span>
-                </div>
-                <div class="message-meta" >
-                    <div class="sender-avatar">{{item.sender.firstname.charAt(0)}}{{item.sender.lastname.charAt(0)}}
+        <div *ngIf="previousMsgs && previousMsgs?.length > 0">
+            <div class="app-message-body" *ngFor="let item of previousMsgs;let i = index">
+
+                <div class="message-wrapper" *ngIf="item?.isReceiver == true">
+                    <div class="message">
+                        <span>{{ item.message }}</span>
                     </div>
-                    <span class="timestamp">{{item.createdAt | date: 'dd-MM-YY'}}</span>
+                    <div class="message-meta">
+                        <div class="sender-avatar">{{item.sender.firstname.charAt(0)}}{{item.sender.lastname.charAt(0)}}
+                        </div>
+                        <span class="timestamp">{{item.createdAt | date: 'dd-MM-YY'}}</span>
+                    </div>
+                </div>
+
+                <div class="message-wrapper" *ngIf="item?.isSender == true">
+                    <div class="message">
+                        <span>{{ item.message }}</span>
+                    </div>
+                    <div class="message-meta">
+                        <div class="sender-avatar">{{item.sender.firstname.charAt(0)}}{{item.sender.lastname.charAt(0)}}
+                        </div>
+                        <span class="timestamp">{{item.createdAt | date: 'dd-MM-YY'}}</span>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="message-wrapper" *ngIf="item?.isSender == true">
-                <div class="message">
-                    <span>{{ item.message }}</span>
-                </div>
-                <div class="message-meta">
-                    <div class="sender-avatar">{{item.sender.firstname.charAt(0)}}{{item.sender.lastname.charAt(0)}}
+        <div *ngIf="previousGroupMsgs && previousGroupMsgs?.length > 0">
+            <div class="app-message-body" *ngFor="let item of previousGroupMsgs;let i = index">
+
+                <div class="message-wrapper" *ngIf="item?.isReceiver == true">
+                    <div class="message">
+                        <span>{{ item.message }}</span>
                     </div>
-                    <span class="timestamp">{{item.createdAt | date: 'dd-MM-YY'}}</span>
+                    <div class="message-meta">
+                        <div class="sender-avatar">{{item.sender.firstname.charAt(0)}}{{item.sender.lastname.charAt(0)}}
+                        </div>
+                        <span class="timestamp">{{item.createdAt | date: 'dd-MM-YY'}}</span>
+                    </div>
+                </div>
+
+                <div class="message-wrapper" *ngIf="item?.isSender == true">
+                    <div class="message">
+                        <span>{{ item.message }}</span>
+                    </div>
+                    <div class="message-meta">
+                        <div class="sender-avatar">{{item.sender.firstname.charAt(0)}}{{item.sender.lastname.charAt(0)}}
+                        </div>
+                        <span class="timestamp">{{item.createdAt | date: 'dd-MM-YY'}}</span>
+                    </div>
                 </div>
             </div>
-
         </div>
 
         <form [formGroup]="chatForm" (ngSubmit)='sendMessage()'>

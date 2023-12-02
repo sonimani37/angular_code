@@ -15,9 +15,7 @@ export class SignInComponent implements OnInit {
     submitted = false;
     responseMessage: string = '';
     response: any;
-
     username = 'Admin'
-
 
     constructor(private formBuilder: UntypedFormBuilder, private auth: AuthenticationService, private router: Router) { }
 
@@ -38,13 +36,12 @@ export class SignInComponent implements OnInit {
         this.auth.sendRequest('post', endPoint, this.signinForm.value).subscribe(
         (result: any) => {
             this.response = result;
-
             if (this.response.success == false) {
                 this.responseMessage = this.response.error;                
             } else if (this.response.success == true) {
                 this.responseMessage = this.response.successmessage;
                 localStorage.setItem('token', this.response['token'])
-                localStorage.setItem('user-data', this.response['user']);
+                // localStorage.setItem('user-data', this.response['user']);
                 localStorage.setItem('userId', this.response['user']['id'])
                 localStorage.setItem('firstname', this.response['user']['firstname'])
                 localStorage.setItem('lastname', this.response['user']['lastname'])

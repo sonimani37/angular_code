@@ -15,6 +15,7 @@ import { AuthenticationGuard } from './guard/authentication.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SignInComponent } from './Authentication/sign-in/sign-in.component';
 import { ChatComponent } from './chat/chat/chat.component';
+import { CreateGroupComponent } from './chat/create-group/create-group.component';
 
 const routes: Routes = [
 	{path: '', component: AppAuthComponent},
@@ -32,6 +33,7 @@ const routes: Routes = [
 	{path: 'course-project', component: AppCompComponent, canActivate: [AuthenticationGuard]},
 	{path: 'test', component:ZtestComponent , canActivate: [AuthenticationGuard]},
 	{path: 'chat/:userId', component:ChatComponent , canActivate: [AuthenticationGuard]},
+	{path: 'create-group', component:CreateGroupComponent , canActivate: [AuthenticationGuard]},
 	{path: '**', redirectTo: 'promises'}
 
 ];

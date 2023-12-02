@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
     responseMessage: any;
     resp: any;
     userId:any
+    allGroups: any;
 
     constructor(private auth: AuthenticationService,private router: Router) { }
 
@@ -21,6 +22,7 @@ export class DashboardComponent implements OnInit {
         this.userId = localStorage.getItem('userId');
         this.currentUser(this.userId);
         this.getAllUsers();
+        this.getAllGroups();
     }
 
     currentUser(userId:any){
@@ -54,9 +56,26 @@ export class DashboardComponent implements OnInit {
             })
     }
 
-    chat(userId:any){
-        const url: string[] = ['/chat/' + userId];
-        this.router.navigate(url);
+    getAllGroups(){
+        var endPoint = 'group'
+        this.auth.sendRequest('get', endPoint, null).subscribe(
+            (result: any) => {
+                if (result.success == false) {
+                    console.log(result);
+
+                } else if (result.success == true) {
+                    this.allGroups = result.groups;
+                    console.log(this.allGroups);
+                    
+                }
+            })
+    }
+
+    chat(Id:any,type:any){
+        this.router.navigate( ['/chat', Id], { queryParams: { type: type } });
+
+        // const url: string[] = ['/chat/', Id], { queryParams: {type: type} } ;
+        // this.router.navigate(url);
     }
 
 }
