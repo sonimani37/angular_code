@@ -102,6 +102,7 @@ export class ChatComponent implements OnInit, OnDestroy {
                 } else if (result.success == true) {
                     this.previousMsgs = [];
                     this.previousMsgs = result.messages;
+
                     this.previousMsgs.forEach((element: any) => {
                         if (element.senderId == this.senderId) {
                             element.isSender = true;
@@ -110,7 +111,12 @@ export class ChatComponent implements OnInit, OnDestroy {
                             element.isReceiver = true;
                             element.isSender = false;
                         }
+
+                        if(this.message.includes('uploads/file')) {
+                            
+                        }
                     });
+                    console.log( this.previousMsgs);
                 }
             })
     }

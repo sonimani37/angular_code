@@ -13,16 +13,25 @@
                     {{item.firstname}} {{item.lastname}},
                 </span>
             </span>
-            
+
         </div>
 
         <div *ngIf="previousMsgs && previousMsgs?.length > 0">
             <div class="app-message-body" *ngFor="let item of previousMsgs;let i = index">
 
                 <div class="message-wrapper" *ngIf="item?.isReceiver == true">
-                    <div class="message">
+
+                    <div>
+                        <img onContextMenu="return false;" src="../../../assets/img/faces/ayo-ogunseinde-2.jpg" alt="" loading="lazy" />
+                    </div>
+                    <div *ngIf="item.message.includes('uploads/file')">
+                        <img onContextMenu="return false;" [src]="item.message" alt="" loading="lazy" />
+                    </div>
+
+                    <div class="message" *ngIf="!item.message.includes('uploads/file')"> 
                         <span>{{ item.message }}</span>
                     </div>
+
                     <div class="message-meta">
                         <div class="sender-avatar">{{item.sender.firstname.charAt(0)}}{{item.sender.lastname.charAt(0)}}
                         </div>
